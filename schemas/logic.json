@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/schema.json",
+  "type": "object",
+  "title": "logic",
+  "description": "Representation of the logic structure",
+  "required": ["expression", "save", "transitions", "context"],
+  "properties": {
+    "expression": {
+      "$id": "#/properties/expression",
+      "type": "string",
+      "title": "Logic expression",
+      "description": "Logic expression to be parsed"
+    },
+    "save": {
+      "$id": "#/properties/save",
+      "type": "string",
+      "title": "Result key",
+      "description": "Key to be used as property name in result object"
+    },
+    "transitions": {
+      "$id": "#/properties/transitions",
+      "type": "object",
+      "title": "Transitions object",
+      "description": "Object with transitions (isTrue, isFalse, isError)",
+      "required": ["isTrue", "isFalse", "isError"],
+      "properties": {
+        "isTrue": {
+          "$id": "#/properties/transitions/true",
+          "type": "number",
+          "title": "Is True",
+          "description": "True transition"
+        },
+        "isFalse": {
+          "$id": "#/properties/transitions/false",
+          "type": "number",
+          "title": "Is False",
+          "description": "False transition"
+        },
+        "isError": {
+          "$id": "#/properties/transitions/error",
+          "type": "number",
+          "title": "Is Error",
+          "description": "Error transition"
+        }
+      }
+    },
+    "context": {
+      "$id": "#/properties/context",
+      "type": "object",
+      "title": "Context object",
+      "description": "Object with values to be replaced in expression",
+      "additionalProperties": true
+    }
+  }
+}

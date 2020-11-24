@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/schema.json",
+  "type": "object",
+  "title": "arithmetic",
+  "description": "Representation of the arithmetic structure",
+  "required": ["expression", "save", "transitions", "context"],
+  "properties": {
+    "expression": {
+      "$id": "#/properties/expression",
+      "type": "string",
+      "title": "Arithmetic expression",
+      "description": "Arithmetic expression to be parsed"
+    },
+    "save": {
+      "$id": "#/properties/save",
+      "type": "string",
+      "title": "Result key",
+      "description": "Key to be used as property name in result object"
+    },
+    "transitions": {
+      "$id": "#/properties/transitions",
+      "type": "object",
+      "title": "Transitions object",
+      "description": "Object with transitions (next, error)",
+      "properties": {
+        "next": {
+          "$id": "#/properties/transitions/next",
+          "type": "number",
+          "title": "Next",
+          "description": "Next transition"
+        },
+        "error": {
+          "$id": "#/properties/transitions/error",
+          "type": "number",
+          "title": "Error",
+          "description": "Error transition"
+        }
+      }
+    },
+    "context": {
+      "$id": "#/properties/context",
+      "type": "object",
+      "title": "Context object",
+      "description": "Object with values to be replaced in expression",
+      "additionalProperties": true
+    }
+  }
+}
